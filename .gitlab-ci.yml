@@ -10,5 +10,3 @@ build:
   stage: build
   script:
     - docker build -t registry.gitlab.com/$group/$project:$tag .
-  only:
-  - tags
