@@ -1,3 +1,5 @@
+FROM: docker:19.03.12
+
 variables:
   username: dimogrigorov@gmail.com #"put your username here"
   password: man86dragora #"put your pasword here"
