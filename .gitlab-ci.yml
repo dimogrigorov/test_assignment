@@ -10,9 +10,5 @@ build:
   stage: build
   script:
     - docker build -t registry.gitlab.com/$group/$project:$tag .
-  stage: deploy
-  script:
-    - docker login $registry -u $username -p $password
-    - docker push $registry/$group/$project:$tag
   only:
   - tags
