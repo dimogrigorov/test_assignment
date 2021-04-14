@@ -1,0 +1,18 @@
+variables:
+  username: dimogrigorov@gmail.com #"put your username here"
+  password: man86dragora #"put your pasword here"
+  registry: registry.gitlab.com
+  group: testgroup625
+  project: test_assignment
+  tag: latest
+  
+build:
+  stage: build
+  script:
+    - docker build -t registry.gitlab.com/$group/$project:$tag .
+  stage: deploy
+  script:
+    - docker login $registry -u $username -p $password
+    - docker push $registry/$group/$project:$tag
+  only:
+  - tags
