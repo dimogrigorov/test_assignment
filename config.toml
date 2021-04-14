@@ -1,0 +1,18 @@
+concurrent = 1
+check_interval = 0
+
+[[runners]]
+  executor = "docker"
+  environment = ["DOCKER_TLS_CERTDIR"]
+  [runners.docker]
+    tls_verify = false
+    image = "docker:19.03.1"
+    privileged = true
+    cache_dir = "cache"
+    disable_cache = false
+    volumes = ["/cache"]
+  [runners.cache]
+    Insecure = false
+
+[session_server]
+  session_timeout = 1800
