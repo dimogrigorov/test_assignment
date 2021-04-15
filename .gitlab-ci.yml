@@ -14,6 +14,13 @@ variables:
   PROJECT: test_assignment
   TAG: latest
 
+clean:
+  stage: cleanup
+  script:
+  - echo "Time to clean up"
+  after_script:
+  - rm -rf $CI_PROJECT_DIR
+
 build:
   variables:
     GIT_STRATEGY: clean
@@ -33,7 +40,6 @@ deploy:
   
 create_k8_deployment:
   script:
-    - git clean
     - git checkout master
     - "sed -i \"s|image: |image: \\\"$REGISTRY/$TAG/$PROJECT:$TAG\\\"|g\" deployment.yaml"
     - cat deployment.yaml
@@ -42,4 +48,4 @@ create_k8_deployment:
     - git add --all
     - git commit -m "GitLab Runner Push"
     - git status
-    - git push --force origin master
+    - git push origin master
