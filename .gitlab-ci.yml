@@ -29,7 +29,7 @@ deploy:
   
 create_k8_deployment:
   script:
-    - "sed s|image: \"\"|image: \"$REGISTRY/$TAG/$PROJECT:$TAG\"|g deployment.yaml"
+    - "sed s|image: \"\"|image: \"$REGISTRY/$TAG/$PROJECT:$TAG\"| deployment.yaml"
     - git add --all
     - git commit -m "GitLab Runner Push"
     - git push "https://${GITLAB_USER_NAME}:${CI_GIT_TOKEN}@${CI_REPOSITORY_URL#*@}" HEAD:master
