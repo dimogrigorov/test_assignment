@@ -16,14 +16,14 @@ variables:
 
 build:
   variables:
-    GIT_STRATEGY: empty
+    GIT_STRATEGY: clean
   stage: build
   script:
     - docker build -t $REGISTRY/$TAG/$PROJECT:$TAG .
 
 deploy:  
   variables:
-    GIT_STRATEGY: empty
+    GIT_STRATEGY: clean
   stage: deploy
   script:
     - docker login $REGISTRY -u $GITLAB_USER_NAME -p $GITLAB_PASSWORD
