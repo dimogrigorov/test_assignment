@@ -19,7 +19,8 @@ deploy:
     - docker push $REGISTRY/$GROUP/$PROJECT:$TAG
   only:
   - tags
-
+  
+image: alpine/git:latest
 create_k8_deployment:
   before_script:
     - git config --global user.name "${GITLAB_USER_NAME}"
