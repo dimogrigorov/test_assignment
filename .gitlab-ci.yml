@@ -20,7 +20,10 @@ deploy:
   only:
   - tags
   
-image: alpine/git:latest
+image:
+  name: alpine/git:latest
+  entrypoint: [""]
+
 create_k8_deployment:
   before_script:
     - git config --global user.name "${GITLAB_USER_NAME}"
