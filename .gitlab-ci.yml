@@ -4,12 +4,12 @@ variables:
   GITLAB_USER_NAME: dimogrigorov@gmail.com #"put your username here"
   GITLAB_USER_EMAIL: dimogrigorov@gmail.com #"put your email here"
   GITLAB_PASSWORD: man86dragora #"put your pasword here"
-  CI_REPOSITORY_URL=https://gitlab.com/testgroup625/test_assignment.git
+  CI_REPOSITORY_URL: https://gitlab.com/testgroup625/test_assignment.git
   REGISTRY: registry.gitlab.com
   GROUP: testgroup625
   PROJECT: test_assignment
   TAG: latest
-  
+
 build:
   stage: build
   script:
@@ -24,7 +24,6 @@ deploy:
   - tags
 
 create_k8_deployment:
-  stage: k8_deployment
   before_script:
     - git config --global user.name "${GITLAB_USER_NAME}"
     - git config --global user.email "${GITLAB_USER_EMAIL}"
