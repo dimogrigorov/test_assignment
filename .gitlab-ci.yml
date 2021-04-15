@@ -1,3 +1,13 @@
+version:
+  image: python:3.7-stretch
+  script:
+    - pip install semver
+    - $SCRIPTS_DIR/common/gen-semver > version
+    - cat version
+  artifacts:
+    paths:
+      - version
+
 image: docker:stable
 
 before_script:
@@ -16,15 +26,6 @@ clean:
   after_script:
   - rm -rf $CI_PROJECT_DIR
 
-version:
-  image: python:3.7-stretch
-  script:
-    - pip install semver
-    - $SCRIPTS_DIR/common/gen-semver > version
-    - cat version
-  artifacts:
-    paths:
-      - version
 
 build:
   stage: build
