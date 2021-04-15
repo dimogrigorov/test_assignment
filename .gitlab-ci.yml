@@ -1,4 +1,4 @@
-image: docker:19.03.13
+#image: docker:19.03.13
 
 variables:
   GITLAB_USER_NAME: dimogrigorov@gmail.com #"put your username here"
