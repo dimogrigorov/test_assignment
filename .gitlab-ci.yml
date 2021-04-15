@@ -1,15 +1,3 @@
-version:
-  image: python:3.7-stretch
-  before_script:
-    - apk update && apk add git
-  script:
-    - ls -la
-    - pip install semver
-    - python gen-semver.py
-  artifacts:
-    paths:
-      - version
-
 image: docker:stable
 
 before_script:
@@ -44,6 +32,7 @@ deploy:
   
 create_k8_deployment:
   script:
+    - ./semver.sh 
     - git config --global user.name "${GITLAB_USER_NAME}"
     - git config --global user.email "${GITLAB_USER_NAME}"
     - git checkout master
