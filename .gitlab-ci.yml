@@ -2,10 +2,7 @@ version:
   image: python:3.7-stretch
   script:
     - pip install semver
-    - echo "ScriptDir:$SCRIPTS_DIR"
-    - ls -la $SCRIPTS_DIR
-    - $SCRIPTS_DIR/common/gen-semver > version
-    - cat version
+    - python gen-semver.py
   artifacts:
     paths:
       - version
