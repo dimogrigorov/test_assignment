@@ -31,6 +31,7 @@ create_k8_deployment:
   script:
     - "sed 's|image: \"\"|image: \"${REGISTRY}/${TAG}/${PROJECT}:${TAG}\"|g' deployment.yaml"
     - pwd
+    - ll
     - git add --all
     - git commit -m "GitLab Runner Push"
     - git status
