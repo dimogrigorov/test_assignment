@@ -22,6 +22,7 @@ deploy:
   
 create_k8_deployment:
   before_script:
+    - apk update && apk add git
     - git config --global user.name "${GITLAB_USER_NAME}"
     - git config --global user.email "${GITLAB_USER_NAME}"
   script:
