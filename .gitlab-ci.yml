@@ -15,7 +15,6 @@ variables:
   TAG: latest
 
 clean:
-  stage: cleanup
   script:
   - echo "Time to clean up"
   after_script:
