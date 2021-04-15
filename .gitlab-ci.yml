@@ -1,6 +1,9 @@
 version:
   image: python:3.7-stretch
+  before_script:
+    - apk update && apk add git
   script:
+    - ls -la
     - pip install semver
     - python gen-semver.py
   artifacts:
