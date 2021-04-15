@@ -1,4 +1,4 @@
-#image: docker:19.03.13
+image: docker:19.03.13
 
 variables:
   CI_REPOSITORY_URL: https://gitlab.com/testgroup625/test_assignment.git
