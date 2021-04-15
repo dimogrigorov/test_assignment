@@ -18,7 +18,6 @@ clean:
 
 version:
   image: python:3.7-stretch
-  stage: version
   script:
     - pip install semver
     - $SCRIPTS_DIR/common/gen-semver > version
